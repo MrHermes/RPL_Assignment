@@ -3,7 +3,9 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import Layout from '@/component/layout/Layout'
-import PageTitle from './sections/PageTitle'
+import PageTitle from '@/component/PageTitle'
+import PageDiv from '@/component/PageDiv'
+import PageBottom from '@/component/PageBottom'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,6 +21,8 @@ export default function Home() {
       <Layout>
         <main>
           <PageTitle/>
+          <PageDiv/>
+          <PageBottom/>
         </main>
       </Layout>  
     </>

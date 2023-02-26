@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
-
+import Link from 'next/link';
 type HamburgProp = {
     initial: boolean
 }
@@ -9,16 +9,12 @@ const Hamburg = ({ initial = true } : HamburgProp) => {
     const handleToggle = () => setHamburgOn((prev) => !prev)
     return (
         <div>
-            {hamburgOn && 
-                (<div className="space-y-2" onClick={handleToggle}>
-                        <div className="w-8 h-0.5 bg-gray-600"></div>
-                        <div className="w-8 h-0.5 bg-gray-600"></div>
-                        <div className="w-8 h-0.5 bg-gray-600"></div>  
-                </div>)
-            }
 
-            {!hamburgOn && 
-                (<ul className="flex flex-row p-3">
+            {hamburgOn ? (<div className="space-y-1" onClick={handleToggle}>
+                        <div className="w-8 h-1 bg-white rounded-2xl"></div>
+                        <div className="w-8 h-1 bg-white rounded-2xl"></div>
+                        <div className="w-8 h-1 bg-white rounded-2xl"></div>  
+                </div>) : (<ul className="flex flex-row py-1">
                     <li>
                         <a href='' className='text-xl px-2 text-white font-semibold'>
                             Our Product
@@ -30,12 +26,12 @@ const Hamburg = ({ initial = true } : HamburgProp) => {
                         </a>
                     </li>
                     <li>
-                        <a href='' className='text-xl px-2 text-white font-semibold'>
-                            Contact Us
-                        </a>
+                        <Link href='/form_page' className='text-xl px-2 text-white font-semibold'>
+                            NewsForYou
+                        </Link>
                     </li>
-                </ul>)
-            }  
+                </ul>)}
+             
         </div>  
     )
 }
